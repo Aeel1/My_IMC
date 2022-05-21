@@ -5,14 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
+    DecimalFormat df = new DecimalFormat("#");
     EditText num1EditText;
     EditText num2EditText;
     EditText resulstadoEditText;
-    TextView classEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         }
         float result = num2 / (num1 * num1);
-        resulstadoEditText.setText(String.valueOf(result));
+        resulstadoEditText.setText(df.format(result));
         if(result >= 30 ){
             Toast.makeText(getApplicationContext(),
                             "Cuidado com a Saúde.",
